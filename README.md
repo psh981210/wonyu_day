@@ -1,2 +1,260 @@
 # Valentine-Day
 for my boyfri
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Our Love Story 💖</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:-apple-system, BlinkMacSystemFont, sans-serif;
+background:linear-gradient(to bottom,#ff9ecf,#ffcce6);
+color:white;
+text-align:center;
+}
+
+/* 비밀번호 화면 */
+
+#lockScreen{
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom,#ff9ecf,#ffcce6);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
+}
+
+input{
+padding:12px;
+border:none;
+border-radius:20px;
+margin-top:10px;
+font-size:16px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4da6;
+font-size:16px;
+margin-top:15px;
+}
+
+/* 메인 */
+
+#main{
+display:none;
+padding:20px;
+}
+
+#days{
+margin:15px;
+font-size:20px;
+}
+
+/* 지도 */
+
+iframe{
+width:90%;
+height:200px;
+border-radius:20px;
+border:none;
+margin-top:15px;
+}
+
+/* 슬라이드 */
+
+.slider{
+position:relative;
+width:90%;
+margin:auto;
+}
+
+.slider img{
+width:100%;
+border-radius:20px;
+display:none;
+}
+
+/* 편지 */
+
+#letter{
+display:none;
+background:white;
+color:#333;
+padding:20px;
+border-radius:20px;
+width:85%;
+margin:20px auto;
+font-size:18px;
+line-height:1.6;
+min-height:120px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- 비밀번호 -->
+
+<div id="lockScreen">
+
+<h2>🔐 우리의 추억</h2>
+
+<div>비밀번호를 입력해줘🍫</div>
+
+<input type="password" id="pw">
+
+<button onclick="checkPW()">열기</button>
+
+<div id="error" style="color:white;margin-top:10px;"></div>
+
+</div>
+
+<!-- 메인 -->
+
+<div id="main">
+
+<h1>Our Love Story 💞</h1>
+
+<div id="days"></div>
+
+<div>📍 우리가 처음 만난 곳: 괌</div>
+
+<iframe
+src="https://maps.google.com/maps?q=Guam&t=&z=10&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+<div class="slider">
+
+<img src="IMG_7499">
+<img src="IMG_6938">
+<img src="IMG_8037">
+<img src="IMG_0330">
+<img src="IMG_3743">
+<img src="IMG_2903">
+<img src="IMG_4265">
+<img src="IMG_9041">
+<img src="IMG_3987">
+<img src="IMG_0068">
+
+</div>
+
+<button onclick="startLetter()">💌 편지 열기</button>
+
+<div id="letter"></div>
+
+</div>
+
+<script>
+
+/* 비밀번호 */
+
+function checkPW(){
+
+const password="0812";
+
+const input=document.getElementById("pw").value;
+
+if(input===password){
+
+document.getElementById("lockScreen").style.display="none";
+
+document.getElementById("main").style.display="block";
+
+}else{
+
+document.getElementById("error").innerText="비밀번호가 틀렸어 😢";
+
+}
+
+}
+
+/* 날짜 카운트 */
+
+const startDate=new Date(2022,8,30);
+
+const today=new Date();
+
+const diff=Math.floor((today-startDate)/(1000*60*60*24));
+
+document.getElementById("days").innerText=
+"우리가 함께한 지 "+diff+"일째 ❤️";
+
+/* 슬라이드 */
+
+let index=0;
+
+const slides=document.querySelectorAll(".slider img");
+
+function showSlides(){
+
+slides.forEach(img=>img.style.display="none");
+
+index++;
+
+if(index>slides.length) index=1;
+
+slides[index-1].style.display="block";
+
+setTimeout(showSlides,3000);
+
+}
+
+showSlides();
+
+/* 편지 애니메이션 */
+
+const text=`2022년 8월 30일,
+
+괌에서 너를 처음 만난 순간부터  
+내 세상은 정말 달라졌어.
+
+우리가 함께한 모든 시간,  
+모든 웃음,  
+모든 순간이 나에게는 선물이야.
+
+앞으로도 지금처럼  
+서로의 옆에서 자주 여행다니고,
+같이 웃고, 자주 다투며 같이 걸어가자.
+
+사랑해🍀✨💕`;
+
+let i=0;
+
+function startLetter(){
+
+document.getElementById("letter").style.display="block";
+
+typing();
+
+}
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("letter").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(typing,50);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
