@@ -176,6 +176,7 @@ min-height:120px;
   </div>
   <button onclick="prevPhoto()">◀</button>
   <button onclick="nextPhoto()">▶</button>
+  <button onclick="goLetter()">💌 편지 열기</button>
 </div>
 
 <!-- 페이지 3: 편지 -->
@@ -297,6 +298,12 @@ function prevPhoto() {
 function goNext() {
   document.getElementById("page-map").classList.remove("active");
   document.getElementById("page-photo").classList.add("active");
+}
+
+function goLetter() {
+  document.getElementById("page-photo").classList.remove("active");
+  document.getElementById("page-letter").classList.add("active");
+  startLetter();
 }
 
 </script>
