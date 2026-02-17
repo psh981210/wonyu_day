@@ -276,6 +276,9 @@ text-align: left;
 </div>
 
 <script>
+let i = 0; 
+let current = 0;
+let slides = document.querySelectorAll(".slide-item");
 
 /* 비밀번호 */
 
@@ -313,17 +316,6 @@ document.getElementById("days").innerText=
 /* 슬라이드 */
   
 let slideIndex = 0;
-const slidePages = document.querySelectorAll(".slide");
-
-function nextSlide() {
-  slidePages[slideIndex].style.transform = "translateX(-100%)";
-  slideIndex++;
-  if (slideIndex < slidePages.length) {
-    slidePages[slideIndex].style.transform = "translateX(0)";
-  }
-}
-
-// showSlides();
 
 /* 편지 애니메이션 */
 
@@ -353,8 +345,6 @@ const text=`2022년 8월 30일,
 
 사랑해🍀✨💕`;
 
-let i=0;
-
 function startLetter(event){
   i = 0; 
   const letterDiv = document.getElementById("letter");
@@ -378,10 +368,6 @@ function typing(){
   }
 
 }
-
-let slides = document.querySelectorAll(".slide-item");
-let current = 0;
-// slides[current].classList.add("active");
 
 function nextPhoto() {
   slides[current].classList.remove("active");
