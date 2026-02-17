@@ -105,11 +105,13 @@ margin-top:15px;
 }
 
 .slide-item img {
-  max-width: 45%;
-  max-height: 40vh;
+  width: 80%;      
+  max-width: 400px;
+  height: auto;    
   border-radius: 15px;
-  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
 }
+
 
 .slide-item.active {
   display: flex;
@@ -133,7 +135,11 @@ width:85%;
 margin:20px auto;
 font-size:18px;
 line-height:1.6;
-min-height:120px;
+min-height:120px
+white-space: pre-wrap; 
+text-align: left; 
+}
+
 }
 
 </style>
@@ -353,7 +359,7 @@ let i=0;
 
 function startLetter(){
  i = 0;
- document.getElementById("letter").innerHTML = "";
+ document.getElementById("letter").innerText = "";
   
  document.getElementById("letter").style.display="block";
 
