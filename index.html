@@ -57,20 +57,6 @@ button:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.heart {
-  position: fixed;
-  top: -10px;
-  color: pink;
-  font-size: 20px;
-  animation: fall 5s linear infinite;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
-}
-
   setTimeout(() => {
     heart.remove();
   }, 5000);
@@ -243,14 +229,8 @@ document.getElementById("main").style.display="block";
 
 document.getElementById("error").innerText="비밀번호가 틀렸어 😢";
 
- function createHeart() {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💗";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-  document.body.appendChild(heart);
- }
+}
+  
 }
 
 /* 날짜 카운트 */
