@@ -57,13 +57,6 @@ button:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
-}
-
-setInterval(createHeart, 500);
-
 /* 메인 */
 
 #main{
@@ -179,18 +172,6 @@ min-height:120px;
 src="https://maps.google.com/maps?q=Guam&t=&z=10&ie=UTF8&iwloc=&output=embed">
 </iframe>
 
-let slides = document.querySelectorAll(".slider img");
-let current = 0;
-
-slides[current].classList.add("active");
-
-function nextPhoto() {
-  slides[current].classList.remove("active");
-  current++;
-  if (current >= slides.length) current = 0;
-  slides[current].classList.add("active");
-}
-
 function prevPhoto() {
   slides[current].classList.remove("active");
   current--;
@@ -257,7 +238,7 @@ function nextSlide() {
   }
 }
 
-showSlides();
+// showSlides();
 
 /* 편지 애니메이션 */
 
@@ -298,6 +279,18 @@ setTimeout(typing,50);
 
 }
 
+}
+
+let slides = document.querySelectorAll(".slider img");
+let current = 0;
+
+slides[current].classList.add("active");
+
+function nextPhoto() {
+  slides[current].classList.remove("active");
+  current++;
+  if (current >= slides.length) current = 0;
+  slides[current].classList.add("active");
 }
 
 </script>
