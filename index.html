@@ -71,14 +71,6 @@ button:hover {
   }
 }
 
-  function createHeart() {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💗";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-  document.body.appendChild(heart);
-
   setTimeout(() => {
     heart.remove();
   }, 5000);
@@ -183,6 +175,10 @@ min-height:120px;
 
 </div>
 
+<div class="container">
+  <!-- 슬라이드들 -->
+</div>
+
 <!-- 메인 -->
 
 <div id="main">
@@ -247,8 +243,14 @@ document.getElementById("main").style.display="block";
 
 document.getElementById("error").innerText="비밀번호가 틀렸어 😢";
 
-}
-
+ function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  document.body.appendChild(heart);
+ }
 }
 
 /* 날짜 카운트 */
@@ -262,10 +264,8 @@ const diff=Math.floor((today-startDate)/(1000*60*60*24));
 document.getElementById("days").innerText=
 "우리가 함께한 지 "+diff+"일째 ❤️";
 
-<div class="container">
-  <!-- 슬라이드들 -->
-</div>
-
+/* 슬라이드 */
+  
 let slideIndex = 0;
 const slidePages = document.querySelectorAll(".slide");
 
