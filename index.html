@@ -278,47 +278,26 @@ text-align: left;
 <script>
 let i = 0; 
 let current = 0;
-let slides = document.querySelectorAll(".slide-item");
 
 /* 비밀번호 */
-
 function checkPW(){
-
-const password="0812";
-
-const input=document.getElementById("pw").value;
-
-if(input===password){
-
-document.getElementById("lockScreen").style.display="none";
-
-document.getElementById("page-map").classList.add("active");
-
-}else{
-
-document.getElementById("error").innerText="비밀번호가 틀렸어 😢";
-
-}
-  
+  const password="0812";
+  const input=document.getElementById("pw").value;
+  if(input===password){
+    document.getElementById("lockScreen").style.display="none";
+    document.getElementById("page-map").classList.add("active");
+  }else{
+    document.getElementById("error").innerText="비밀번호가 틀렸어 😢";
+  }
 }
 
 /* 날짜 카운트 */
-
 const startDate=new Date(2022,8,30);
-
 const today=new Date();
-
 const diff=Math.floor((today-startDate)/(1000*60*60*24));
-
-document.getElementById("days").innerText=
-"우리가 함께한 지 "+diff+"일째 ❤️";
-
-/* 슬라이드 */
-  
-let slideIndex = 0;
+document.getElementById("days").innerText= "우리가 함께한 지 "+diff+"일째 ❤️";
 
 /* 편지 애니메이션 */
-
 const text=`2022년 8월 30일,
 
 괌에서 너를 처음 만난 순간부터  
@@ -348,17 +327,13 @@ const text=`2022년 8월 30일,
 function startLetter(event){
   i = 0; 
   const letterDiv = document.getElementById("letter");
-  
   letterDiv.innerText = ""; 
   letterDiv.style.display = "block"; 
-  
   if(event && event.target) {
     event.target.style.display = "none"; 
   }
-  
   typing(); 
 }
-
 
 function typing(){
   if (i < text.length) {
@@ -366,18 +341,19 @@ function typing(){
     i++;
     setTimeout(typing, 30);
   }
-
 }
 
+/* 사진 슬라이드 기능 */
 function nextPhoto() {
+  let slides = document.querySelectorAll(".slide-item"); // 함수 안에서 사진을 찾도록 수정
   slides[current].classList.remove("active");
   current++;
   if (current >= slides.length) current = 0;
   slides[current].classList.add("active");
-  
 }
 
 function prevPhoto() {
+  let slides = document.querySelectorAll(".slide-item"); // 함수 안에서 사진을 찾도록 수정
   slides[current].classList.remove("active");
   current--;
   if (current < 0) current = slides.length - 1;
@@ -393,8 +369,4 @@ function goLetter() {
   document.getElementById("page-photo").classList.remove("active");
   document.getElementById("page-letter").classList.add("active");
 }
-
 </script>
-
-</body>
-</html>
