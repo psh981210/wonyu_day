@@ -271,7 +271,7 @@ text-align: left;
 
 <!-- 페이지 3: 편지 -->
 <div class="page" id="page-letter">
-  <button onclick="startLetter()">💌 편지 열기</button>
+  <button onclick="startLetter(event)">💌 편지 열기</button>
   <div id="letter"></div>
 </div>
 
@@ -356,15 +356,19 @@ const text=`2022년 8월 30일,
 let i=0;
 
 function startLetter(event){
-  i = 0;
+  i = 0; 
   const letterDiv = document.getElementById("letter");
-  letterDiv.innerText = ""; 
-  letterDiv.style.display = "block"; 
   
- event.target.style.display = "none"; 
+  letterDiv.innerText = "";
+  letterDiv.style.display = "block";
   
-  typing();
+  if(event && event.target) {
+    event.target.style.display = "none"; 
+  }
+  
+  typing(); 
 }
+
 
 function typing(){
   if (i < text.length) {
