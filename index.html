@@ -61,9 +61,12 @@ button:hover {
 
 /* 메인 */
 
-#main{
-display:none;
-padding:20px;
+.page {
+  display: none;
+  padding: 20px;
+}
+.page.active {
+  display: block;
 }
 
 #days{
@@ -148,40 +151,37 @@ min-height:120px;
 
 </div>
 
-<!-- 메인 -->
-
-<div id="main">
-
-<h1>Our Love Story 💞</h1>
-
-<div id="days"></div>
-
-<div>📍 우리가 처음 만난 곳: 괌</div>
-
-<iframe
-src="https://maps.google.com/maps?q=Guam&t=&z=10&ie=UTF8&iwloc=&output=embed">
-</iframe>
-
-<div class="container">  
- <div class="slider">
-  <img src="IMG_0068.jpeg" class="active">
-  <img src="IMG_0330.jpeg">
-  <img src="IMG_2903.jpeg">
-  <img src="IMG_3743.jpeg">
-  <img src="IMG_3987.jpeg">
-  <img src="IMG_4265.jpeg">
-  <img src="IMG_6938.jpeg">
-  <img src="IMG_7499.jpeg">
-  <img src="IMG_8037.jpeg">
-  <img src="IMG_9041.jpeg">
- </div>
+<!-- 페이지 1: 지도 -->
+<div class="page" id="page-map">
+  <h1>Our Love Story 💞</h1>
+  <div id="days"></div>
+  <div>📍 우리가 처음 만난 곳: 괌</div>
+  <iframe src="https://maps.google.com/maps?q=Guam&t=&z=10&ie=UTF8&iwloc=&output=embed"></iframe>
+  <button onclick="goNext()">다음 ▶</button>
 </div>
-  
-<button onclick="prevPhoto()">◀</button>
-<button onclick="nextPhoto()">▶</button>
 
-<button onclick="startLetter()">💌 편지 열기</button>
-<div id="letter"></div>
+<!-- 페이지 2: 사진 -->
+<div class="page" id="page-photo">
+  <div class="slider">
+    <img src="IMG_0068.jpeg" class="active">
+    <img src="IMG_0330.jpeg">
+    <img src="IMG_2903.jpeg">
+    <img src="IMG_3743.jpeg">
+    <img src="IMG_3987.jpeg">
+    <img src="IMG_4265.jpeg">
+    <img src="IMG_6938.jpeg">
+    <img src="IMG_7499.jpeg">
+    <img src="IMG_8037.jpeg">
+    <img src="IMG_9041.jpeg">
+  </div>
+  <button onclick="prevPhoto()">◀</button>
+  <button onclick="nextPhoto()">▶</button>
+</div>
+
+<!-- 페이지 3: 편지 -->
+<div class="page" id="page-letter">
+  <button onclick="startLetter()">💌 편지 열기</button>
+  <div id="letter"></div>
 </div>
 
 <script>
@@ -198,7 +198,7 @@ if(input===password){
 
 document.getElementById("lockScreen").style.display="none";
 
-document.getElementById("main").style.display="block";
+document.getElementById("page-map").classList.add("active");
 
 }else{
 
@@ -292,6 +292,11 @@ function prevPhoto() {
   current--;
   if (current < 0) current = slides.length - 1;
   slides[current].classList.add("active");
+}
+
+function goNext() {
+  document.getElementById("page-map").classList.remove("active");
+  document.getElementById("page-photo").classList.add("active");
 }
 
 </script>
