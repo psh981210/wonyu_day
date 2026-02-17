@@ -113,10 +113,6 @@ position: absolute;
   opacity: 1;
 }
 
-.slider img.active {
-  display: block;
-}
-
 /* 편지 */
 
 #letter{
@@ -281,8 +277,7 @@ setTimeout(typing,50);
 
 let slides = document.querySelectorAll(".slider img");
 let current = 0;
-
-slides[current].classList.add("active");
+// slides[current].classList.add("active");
 
 function nextPhoto() {
   slides[current].classList.remove("active");
