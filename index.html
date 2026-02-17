@@ -2,303 +2,86 @@
 <head>
 <meta charset="UTF-8">
 <title>Our Love Story 💖</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-
 body{
-margin:0;
-font-family:-apple-system, BlinkMacSystemFont, sans-serif;
-background:linear-gradient(to bottom,#ff9ecf,#ffcce6);
-color:white;
-text-align:center;
+  margin:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif;
+  background:linear-gradient(to bottom,#ff9ecf,#ffcce6); color:white; text-align:center;
 }
-
-/* 비밀번호 화면 */
-
 #lockScreen{
-position:fixed;
-width:100%;
-height:100%;
-background:linear-gradient(to bottom,#ff9ecf,#ffcce6);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-z-index:10;
+  position:fixed; width:100%; height:100%; background:linear-gradient(to bottom,#ff9ecf,#ffcce6);
+  display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:10;
 }
-
-#lockScreen h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-input{
-padding:12px;
-border:none;
-border-radius:20px;
-margin-top:10px;
-font-size:16px;
-}
-
+#lockScreen h1 { font-size: 32px; margin-bottom: 20px; }
+input{ padding:12px; border:none; border-radius:20px; margin-top:10px; font-size:16px; }
 button{
-  background: linear-gradient(45deg, #ff6b81, #ff9a9e);
-  border: none;
-  padding: 10px 20px;
-  color: white;
-  font-size: 16px;
-  border-radius: 25px;
-  cursor: pointer;
-  margin: 10px;
+  background: linear-gradient(45deg, #ff6b81, #ff9a9e); border: none; padding: 10px 20px;
+  color: white; font-size: 16px; border-radius: 25px; cursor: pointer; margin: 10px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* 메인 */
-
-.page {
-  display: none;
-  padding: 20px;
-}
-.page.active {
-  display: block;
-}
-
-#days{
-margin:15px;
-font-size:20px;
-}
-
-/* 지도 */
-
-iframe{
-width:90%;
-height:200px;
-border-radius:20px;
-border:none;
-margin-top:15px;
-}
-
-/* 슬라이드 */
-
-.slider{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  transition: transform 0.8s ease;
-}
-
-.slide-item {
-  display: none;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  min-height: 50vh;
-}
-
-.slide-item img {
-  width: 80%;      
-  max-width: 400px;
-  height: auto;    
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
-}
-
-
-.slide-item.active {
-  display: flex;
-}
-
-.caption {
-  text-align: left;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-/* 편지 */
-
+button:hover { transform: scale(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.page { display: none; padding: 20px; }
+.page.active { display: block; }
+#days{ margin:15px; font-size:20px; }
+iframe{ width:90%; height:200px; border-radius:20px; border:none; margin-top:15px; }
+.slider{ width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; }
+.slide-item { display: none; flex-direction: row; align-items: center; justify-content: center; gap: 20px; min-height: 50vh; }
+.slide-item img { width: 80%; max-width: 400px; height: auto; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.slide-item.active { display: flex; }
+.caption { text-align: left; font-size: 15px; line-height: 1.8; }
 #letter{
-display:none;
-background:white;
-color:#333;
-padding:20px;
-border-radius:20px;
-width:85%;
-margin:20px auto;
-font-size:18px;
-line-height:1.6;
-min-height:120px;
-white-space: pre-wrap; 
-text-align: left; 
+  display:none; background:white; color:#333; padding:20px; border-radius:20px;
+  width:85%; margin:20px auto; font-size:18px; line-height:1.6; min-height:120px;
+  white-space: pre-wrap; text-align: left; 
 }
-
 </style>
 </head>
 <body>
 
-<!-- 비밀번호 -->
-
 <div id="lockScreen">
-  
-<h1>🎀 HappySW-Day for my boy</h1>
-
-<h2>🔐 우리의 추억</h2>
-
-<div>비밀번호를 입력해줘🍫</div>
-
-<input type="password" id="pw">
-
-<button onclick="checkPW()">열기</button>
-
-<div id="error" style="color:white;margin-top:10px;"></div>
-
+  <h1>🎀 HappySW-Day for my boy</h1>
+  <h2>🔐 우리의 추억</h2>
+  <div>비밀번호를 입력해줘🍫</div>
+  <input type="password" id="pw">
+  <button onclick="checkPW()">열기</button>
+  <div id="error" style="color:white;margin-top:10px;"></div>
 </div>
 
-<!-- 페이지 1: 지도 -->
 <div class="page" id="page-map">
   <h1>Our Love Story 💞</h1>
   <div id="days"></div>
   <div>📍 우리가 처음 만난 곳: 괌</div>
-  <iframe src="https://maps.google.com/maps?q=Guam&t=&z=10&ie=UTF8&iwloc=&output=embed"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101214.34137266657!2d144.7171485669359!3d13.444302685089873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x671f76ff93032471%3A0xf6a827463f59e006!2z6rSA!5e0!3m2!1sko!2skr!4v1700000000000!5m2!1sko!2skr"></iframe>
   <button onclick="goNext()">다음 ▶</button>
 </div>
 
-<!-- 페이지 2: 사진 -->
 <div class="page" id="page-photo">
   <div class="slider">
-    <div class="slide-item active">
-  <img src="IMG_0068.jpeg">
-  <div class="caption">
-    <p>📅 2025.04.23</p>
-    <p>📍 타이베이 동물원</p>
-    <p>원유랑 여행 자주 가서 좋았고, 또 추억 쌓았다!</p>
+    <div class="slide-item active"><img src="IMG_0068.jpeg"><div class="caption"><p>📅 2025.04.23</p><p>📍 타이베이 동물원</p><p>원유랑 여행 자주 가서 좋았고, 또 추억 쌓았다!</p></div></div>
+    <div class="slide-item"><img src="IMG_0330.jpeg"><div class="caption"><p>📅 2023.12.01</p><p>📍 남이섬</p><p>원유랑 춥지만 따뜻했던 남이섬!</p></div></div>
+    <div class="slide-item"><img src="IMG_2903.jpeg"><div class="caption"><p>📅 2024.01.27</p><p>📍 화천 산천어 축제</p><p>물고기 잡아서 신나><!</p></div></div>
+    <div class="slide-item"><img src="IMG_3743.jpeg"><div class="caption"><p>📅 2024.01.06</p><p>📍 춘천집</p><p>기여운 💕 하튜</p></div></div>
+    <div class="slide-item"><img src="IMG_3987.jpeg"><div class="caption"><p>📅 2024.12.29</p><p>📍 졍언니집</p><p>취했지만 커플티는 못말려 사뢍</p></div></div>
+    <div class="slide-item"><img src="IMG_4265.jpeg"><div class="caption"><p>📅 2024.02.22</p><p>📍 강원대학교</p><p>박송희 마지막으로 졸업하다! 젤 신나ㅋ</p></div></div>
+    <div class="slide-item"><img src="IMG_6938.jpeg"><div class="caption"><p>📅 2023.07.16</p><p>📍 강릉 송정해변</p><p>쌤 결혼식까지 운전해줘서 젤 고마운 순간!</p></div></div>
+    <div class="slide-item"><img src="IMG_7499.jpeg"><div class="caption"><p>📅 2023.02.17</p><p>📍 춘천집</p><p>원유는 잠잘 때 제일 예뻐ㅎ</p></div></div>
+    <div class="slide-item"><img src="IMG_8037.jpeg"><div class="caption"><p>📅 2023.10.23</p><p>📍 강릉 사천해변</p><p>스윗해보이지만 젤 많이 싸움ㅜㅜ</p></div></div>
+    <div class="slide-item"><img src="IMG_9041.jpeg"><div class="caption"><p>📅 2024.11.09</p><p>📍 나트랑 혼총</p><p>너와 함께라 그런지, 은근 제일 좋아하는 나트랑 또 가고 싶어</p></div></div>
   </div>
-</div>
-
-<div class="slide-item">
-  <img src="IMG_0330.jpeg">
-  <div class="caption">
-    <p>📅 2023.12.01</p>
-    <p>📍 남이섬</p>
-    <p>원유랑 춥지만 따뜻했던 남이섬!</p>
-  </div>
-</div>
-
-<div class="slide-item">
-  <img src="IMG_2903.jpeg">
-  <div class="caption">
-    <p>📅 2024.01.27</p>
-    <p>📍 화천 산천어 축제</p>
-    <p>물고기 잡아서 신나><!</p>
-  </div>
-</div>
-
-<div class="slide-item">
-  <img src="IMG_3743.jpeg">
-  <div class="caption">
-    <p>📅 2024.01.06</p>
-    <p>📍 춘천집</p>
-    <p>기여운 💕 하튜</p>
-  </div>
-</div>
-
-<div class="slide-item">
-  <img src="IMG_3987.jpeg">
-  <div class="caption">
-    <p>📅 2024.12.29</p>
-    <p>📍 졍언니집</p>
-    <p>취했지만 커플티는 못말려 사뢍</p>
-  </div>
-</div>
-
-<div class="slide-item">
-  <img src="IMG_4265.jpeg">
-  <div class="caption">
-    <p>📅 2024.02.22</p>
-    <p>📍 강원대학교</p>
-    <p>박송희 마지막으로 졸업하다! 젤 신나ㅋ</p>
-  </div>
-</div>
-
-<div class="slide-item">
-  <img src="IMG_6938.jpeg">
-  <div class="caption">
-    <p>📅 2023.07.16</p>
-    <p>📍 강릉 송정해변</p>
-    <p>쌤 결혼식까지 운전해줘서 젤 고마운 순간!</p>
-  </div>
-</div>
-
-<div class="slide-item">
-  <img src="IMG_7499.jpeg">
-  <div class="caption">
-    <p>📅 2023.02.17</p>
-    <p>📍 춘천집</p>
-    <p>원유는 잠잘 때 제일 예뻐ㅎ</p>
-  </div>
-</div>
-
-<div class="slide-item">
-  <img src="IMG_8037.jpeg">
-  <div class="caption">
-    <p>📅 2023.10.23</p>
-    <p>📍 강릉 사천해변</p>
-    <p>스윗해보이지만 젤 많이 싸움ㅜㅜ</p>
-  </div>
-</div>
-
-<div class="slide-item">
-  <img src="IMG_9041.jpeg">
-  <div class="caption">
-    <p>📅 2024.11.09</p>
-    <p>📍 나트랑 혼총</p>
-    <p>너와 함께라 그런지, 은근 제일 좋아하는 나트랑 또 가고 싶어</p>
-  </div>
-</div>
-
   <button onclick="prevPhoto()">◀</button>
   <button onclick="nextPhoto()">▶</button>
   <button onclick="goLetter()">💌 편지 열기</button>
 </div>
 
-<!-- 페이지 3: 편지 -->
 <div class="page" id="page-letter">
   <button onclick="startLetter(event)">💌 편지 열기</button>
   <div id="letter"></div>
 </div>
 
 <script>
-let i = 0; 
+let i = 0;
 let current = 0;
-
-/* 비밀번호 */
-function checkPW(){
-  const password="0812";
-  const input=document.getElementById("pw").value;
-  if(input===password){
-    document.getElementById("lockScreen").style.display="none";
-    document.getElementById("page-map").classList.add("active");
-  }else{
-    document.getElementById("error").innerText="비밀번호가 틀렸어 😢";
-  }
-}
-
-/* 날짜 카운트 */
-const startDate=new Date(2022,8,30);
-const today=new Date();
-const diff=Math.floor((today-startDate)/(1000*60*60*24));
-document.getElementById("days").innerText= "우리가 함께한 지 "+diff+"일째 ❤️";
-
-/* 편지 애니메이션 */
-const text=`2022년 8월 30일,
+const text = `2022년 8월 30일,
 
 괌에서 너를 처음 만난 순간부터  
 내 세상은 정말 달라졌어.
@@ -324,15 +107,29 @@ const text=`2022년 8월 30일,
 
 사랑해🍀✨💕`;
 
-function startLetter(event){
-  i = 0; 
-  const letterDiv = document.getElementById("letter");
-  letterDiv.innerText = ""; 
-  letterDiv.style.display = "block"; 
-  if(event && event.target) {
-    event.target.style.display = "none"; 
+function checkPW(){
+  const password="0812";
+  const input=document.getElementById("pw").value;
+  if(input===password){
+    document.getElementById("lockScreen").style.display="none";
+    document.getElementById("page-map").classList.add("active");
+  }else{
+    document.getElementById("error").innerText="비밀번호가 틀렸어 😢";
   }
-  typing(); 
+}
+
+const startDate=new Date(2022,8,30);
+const today=new Date();
+const diff=Math.floor((today-startDate)/(1000*60*60*24));
+document.getElementById("days").innerText= "우리가 함께한 지 "+diff+"일째 ❤️";
+
+function startLetter(event){
+  i = 0;
+  const letterDiv = document.getElementById("letter");
+  letterDiv.innerText = "";
+  letterDiv.style.display = "block";
+  if(event) event.target.style.display = "none";
+  typing();
 }
 
 function typing(){
@@ -343,20 +140,17 @@ function typing(){
   }
 }
 
-/* 사진 슬라이드 기능 */
 function nextPhoto() {
-  let slides = document.querySelectorAll(".slide-item"); // 함수 안에서 사진을 찾도록 수정
+  let slides = document.querySelectorAll(".slide-item");
   slides[current].classList.remove("active");
-  current++;
-  if (current >= slides.length) current = 0;
+  current = (current + 1) % slides.length;
   slides[current].classList.add("active");
 }
 
 function prevPhoto() {
-  let slides = document.querySelectorAll(".slide-item"); // 함수 안에서 사진을 찾도록 수정
+  let slides = document.querySelectorAll(".slide-item");
   slides[current].classList.remove("active");
-  current--;
-  if (current < 0) current = slides.length - 1;
+  current = (current - 1 + slides.length) % slides.length;
   slides[current].classList.add("active");
 }
 
@@ -370,3 +164,5 @@ function goLetter() {
   document.getElementById("page-letter").classList.add("active");
 }
 </script>
+</body>
+</html>
