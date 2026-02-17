@@ -95,16 +95,22 @@ margin-top:15px;
   transition: transform 0.8s ease;
 }
 
-.slider img{
+.slide-item {
   display: none;
-  max-width: 50%;
-  opacity: 0;
-  transition: opacity 0.8s ease;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-.slider img.active{
-  display: block;
-  opacity: 1;
+.slide-item.active {
+  display: flex;
+}
+
+.caption {
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.8;
 }
 
 /* 편지 */
@@ -359,7 +365,7 @@ setTimeout(typing,50);
 
 }
 
-let slides = document.querySelectorAll(".slider img");
+let slides = document.querySelectorAll(".slide-item");
 let current = 0;
 // slides[current].classList.add("active");
 
