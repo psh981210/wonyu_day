@@ -101,6 +101,14 @@ margin-top:15px;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  min-height: 50vh;
+}
+
+.slider img {
+  max-width: 45%;
+  max-height: 40vh;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
 .slide-item.active {
@@ -344,8 +352,10 @@ const text=`2022년 8월 30일,
 let i=0;
 
 function startLetter(){
-
-document.getElementById("letter").style.display="block";
+ i = 0;
+ document.getElementById("letter").innerHTML = "";
+  
+ document.getElementById("letter").style.display="block";
 
 typing();
 
