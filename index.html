@@ -135,7 +135,7 @@ width:85%;
 margin:20px auto;
 font-size:18px;
 line-height:1.6;
-min-height:120px
+min-height:120px;
 white-space: pre-wrap; 
 text-align: left; 
 }
@@ -358,26 +358,22 @@ const text=`2022년 8월 30일,
 let i=0;
 
 function startLetter(){
- i = 0;
- document.getElementById("letter").innerText = "";
+  i = 0;
+  const letterDiv = document.getElementById("letter");
+  letterDiv.innerHTML = ""; 
+  letterDiv.style.display = "block"; 
   
- document.getElementById("letter").style.display="block";
-
-typing();
-
+ event.target.style.display = "none"; 
+  
+  typing();
 }
 
 function typing(){
-
-if(i<text.length){
-
-document.getElementById("letter").innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(typing,50);
-
-}
+  if (i < text.length) {
+    document.getElementById("letter").innerText += text.charAt(i);
+    i++;
+    setTimeout(typing, 30);
+  }
 
 }
 
