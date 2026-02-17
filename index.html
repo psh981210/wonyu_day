@@ -140,8 +140,6 @@ white-space: pre-wrap;
 text-align: left; 
 }
 
-}
-
 </style>
 </head>
 <body>
@@ -357,10 +355,10 @@ const text=`2022년 8월 30일,
 
 let i=0;
 
-function startLetter(){
+function startLetter(event){
   i = 0;
   const letterDiv = document.getElementById("letter");
-  letterDiv.innerHTML = ""; 
+  letterDiv.innerText = ""; 
   letterDiv.style.display = "block"; 
   
  event.target.style.display = "none"; 
