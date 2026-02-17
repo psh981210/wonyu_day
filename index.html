@@ -1,6 +1,4 @@
-# HappySW-Day
-for my boy
-<!DOCTYPE html>
+#<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -30,6 +28,11 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 z-index:10;
+}
+
+#lockScreen h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 input{
@@ -141,6 +144,8 @@ min-height:120px;
 <!-- 비밀번호 -->
 
 <div id="lockScreen">
+  
+<h1>🎀 HappySW-Day for my boy</h1>
 
 <h2>🔐 우리의 추억</h2>
 
@@ -171,22 +176,12 @@ min-height:120px;
 <iframe
 src="https://maps.google.com/maps?q=Guam&t=&z=10&ie=UTF8&iwloc=&output=embed">
 </iframe>
-
-function prevPhoto() {
-  slides[current].classList.remove("active");
-  current--;
-  if (current < 0) current = slides.length - 1;
-  slides[current].classList.add("active");
-}
     
 <button onclick="prevPhoto()">◀</button>
 <button onclick="nextPhoto()">▶</button>
 
-</div>
-
 <button onclick="startLetter()">💌 편지 열기</button>
-
-<div id="letter"></div>
+<div id="letter"></div></div>
 
 </div>
 
@@ -291,7 +286,15 @@ function nextPhoto() {
   current++;
   if (current >= slides.length) current = 0;
   slides[current].classList.add("active");
+  
 }
+
+function prevPhoto() {
+  slides[current].classList.remove("active");
+  current--;
+  if (current < 0) current = slides.length - 1;
+  slides[current].classList.add("active");
+}(
 
 </script>
 
